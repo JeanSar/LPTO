@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  SOCKET_ENDPOINT: 'http://localhost:6920'
+  SOCKET_ENDPOINT: 'http://lif.sci-web.net:6920'
 };
 
 /*
