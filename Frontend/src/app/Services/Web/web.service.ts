@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class WebService {
   readonly ROOT_URL;
   constructor(private http: HttpClient) {
-    this.ROOT_URL = 'http://localhost:6920';
+    this.ROOT_URL = 'http://lif.sci-web.net:6920';
   }
 
   get(uri: string) {
