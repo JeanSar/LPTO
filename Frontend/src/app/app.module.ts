@@ -12,6 +12,7 @@ import { HomeComponent } from './Home/home/home.component';
 import { CreateRoomComponent } from './Home/create-room/create-room.component';
 import { PrivateRoomComponent } from './Home/private-room/private-room.component';
 import { PublicRoomComponent } from './Home/public-room/public-room.component';
+import { RoomComponent } from './Room/room/room.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PublicRoomComponent } from './Home/public-room/public-room.component';
     HomeComponent,
     CreateRoomComponent,
     PrivateRoomComponent,
-    PublicRoomComponent
+    PublicRoomComponent,
+    RoomComponent
   ],
   imports: [
     BrowserModule,
