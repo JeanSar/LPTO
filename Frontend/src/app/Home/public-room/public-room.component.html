@@ -1,0 +1,14 @@
+<div id="pbr" class="card text-center">
+    <div class="card-body">
+        <h5 class="card-title text-primary font-weight-bold">Public Rooms <button type="button" class="btn btn-primary btn-sm font-weight-bold" (click)="setRooms()">Refresh</button></h5>
+        <ul class="list-group">
+            <li class="list-group-item text-primary font-weight-bold" *ngFor="let room of public_Rooms">{{ room.OwnerName.username }}'s Room --- {{ room.nb }}/8 ---
+                <button id="btnjoin" type="button" class="btn btn-primary font-weight-bold" *ngIf="!room.full" (click)="joinRoom(this.authService.user._id,room.key)">Join</button>
+                <div class="invalid-feedback">
+                    {{ error }}
+                </div>
+                <button type="button" class="btn btn-danger font-weight-bold" *ngIf="room.full" disabled>Full</button>
+            </li>
+        </ul>
+    </div>
+</div>

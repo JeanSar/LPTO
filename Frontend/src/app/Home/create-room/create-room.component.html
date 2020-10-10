@@ -1,0 +1,13 @@
+<div id="crr" class="card text-center" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title text-primary font-weight-bold">Create your Room</h5>
+        <input class="form-check-input" type="checkbox" id="gridCheck" [(ngModel)]="check">
+        <label class="form-check-label text-primary font-weight-bold" for="gridCheck">
+        Private
+        </label><br><br>
+        <button id="createBtn" type="button" class="btn btn-primary font-weight-bold" (click)="create()">Create</button>
+        <div class="invalid-feedback">
+            {{ error }}
+        </div>
+    </div>
+</div>

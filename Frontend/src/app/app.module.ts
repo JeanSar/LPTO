@@ -8,13 +8,21 @@ import { AuthComponent } from './Authentification/auth/auth.component';
 import { LoginComponent } from './Authentification/login/login.component';
 import { SigninComponent } from './Authentification/signin/signin.component';
 import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './Home/home/home.component';
+import { CreateRoomComponent } from './Home/create-room/create-room.component';
+import { PrivateRoomComponent } from './Home/private-room/private-room.component';
+import { PublicRoomComponent } from './Home/public-room/public-room.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
     LoginComponent,
-    SigninComponent
+    SigninComponent,
+    HomeComponent,
+    CreateRoomComponent,
+    PrivateRoomComponent,
+    PublicRoomComponent
   ],
   imports: [
     BrowserModule,
