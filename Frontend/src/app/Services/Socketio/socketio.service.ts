@@ -13,7 +13,7 @@ export class SocketioService {
   constructor(private roomService : RoomService) { }
 
   setupSocketConnection() {
-    this.socket = io(environment.SOCKET_ENDPOINT);
+    this.socket = io(environment.ROOT_URL);
     this.socket.emit('ID', { "UserId" : this.roomService.user, "RoomKey" : this.roomService.key});
     this.roomService.getOwner({ "Id" : this.roomService.user}).subscribe(
       data => {this.roomService.u = data;this.sendMessage(`${this.roomService.u.username} join the room`)},

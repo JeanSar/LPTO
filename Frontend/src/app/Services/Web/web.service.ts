@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ import { Injectable } from '@angular/core';
 export class WebService {
   readonly ROOT_URL;
   constructor(private http: HttpClient) {
-    this.ROOT_URL = 'http://lif.sci-web.net:6920';
+    this.ROOT_URL = environment.ROOT_URL;
   }
 
   get(uri: string) {
