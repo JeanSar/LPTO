@@ -13,6 +13,7 @@ import { CreateRoomComponent } from './Home/create-room/create-room.component';
 import { PrivateRoomComponent } from './Home/private-room/private-room.component';
 import { PublicRoomComponent } from './Home/public-room/public-room.component';
 import { RoomComponent } from './Room/room/room.component';
+import { PhaserGameComponent } from './Game/phaser-game/phaser-game.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { RoomComponent } from './Room/room/room.component';
     CreateRoomComponent,
     PrivateRoomComponent,
     PublicRoomComponent,
-    RoomComponent
+    RoomComponent,
+    PhaserGameComponent
   ],
   imports: [
     BrowserModule,
