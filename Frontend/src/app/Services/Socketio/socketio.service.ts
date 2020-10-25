@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { RoomService } from '../Room/room.service';
 import * as io from 'socket.io-client';
+import { LobbyGameService } from '../Game/lobby/lobby-game.service';
+import { LobbyService } from '../Game/lobby/lobby.service';
 
 @Injectable({
   providedIn: 'root'
@@ -53,6 +55,4 @@ export class SocketioService {
       this.roomService.messages.push(message);
     });
   }
-
-  
 }

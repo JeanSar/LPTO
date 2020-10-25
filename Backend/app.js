@@ -19,30 +19,90 @@ app.use((req, res, next) => {
   });
 app.use(express.json());
 
+var players = {}
 io.on('connection', (socket) => {
     var ID;
     var name;
+    
     console.log('a user connected');
     socket.on('disconnect', ()=> {
         console.log('user disconnected');
         leave_room_forced(ID);
         io.to(ID.RoomKey).emit('User left');
         io.to(ID.RoomKey).emit('new-message',`${name} left the room`);
+        delete players[socket.id]
+        io.to(ID.RoomKey).emit('all-player',players)
         
     });
     socket.on('ID',(data) => {
         ID = data;
         socket.join(ID.RoomKey);
         io.to(ID.RoomKey).emit('User join');
-        getUsernameFromBacktoBack(ID.UserId,(username) => {name = username });
+        getUsernameFromBacktoBack(ID.UserId,(username) => {name = username,
+            players[socket.id] = {
+                name : username,
+                posX : Math.floor(Math.random() * 800),
+                posY : Math.floor(Math.random() * 600),
+                anim : ""
+            }
+        });
 
     });
     socket.on('Fdisconnect', () => {
+        delete players[socket.id]
         socket.disconnect();
+        io.to(ID.RoomKey).emit('all-player',players)
     });
     socket.on('new-message',(message) => {
         io.to(ID.RoomKey).emit('new-message',message);
     });
+
+    socket.on('get-my-player',() => {
+        socket.emit('my-player',players[socket.id])
+    })
+
+    socket.on('move-right',() => {
+        players[socket.id].posX += 2;
+        players[socket.id].anim = 'right';
+        if(players[socket.id].posX > 740){
+            players[socket.id].posX = 740;
+        }
+        io.to(ID.RoomKey).emit('all-position',players)
+    })
+    socket.on('move-left',() => {
+        players[socket.id].posX -= 2;
+        players[socket.id].anim = 'left';
+        if(players[socket.id].posX < 40){
+            players[socket.id].posX = 40;
+        }
+        io.to(ID.RoomKey).emit('all-position',players)
+    })
+    socket.on('move-up',() => {
+        players[socket.id].posY -= 2;
+        if(players[socket.id].posY < 40){
+            players[socket.id].posY = 40;
+        }
+        io.to(ID.RoomKey).emit('all-position',players)
+    })
+    socket.on('move-down',() => {
+        players[socket.id].posY += 2;
+        if(players[socket.id].posY > 560){
+            players[socket.id].posY = 560;
+        }
+        io.to(ID.RoomKey).emit('all-position',players)
+    })
+
+    socket.on('all-player',() => {
+        io.to(ID.RoomKey).emit('all-player',players)
+        console.log(players);
+    })
+
+    /*socket.on('game-1'),(socket) => {
+        socket.on('test',() => {
+            console.log("oouh ma gaté GATO")
+        })
+    }*/
+    
 })
 
 

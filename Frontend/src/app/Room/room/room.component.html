@@ -49,7 +49,7 @@
             <button type="button" class="btn btn-danger btn-lg btn-block font-weight-bold" style="margin-bottom: 5px;" (click)="leaveRoom()">leave</button>
         </div>
         <div id="gameBox" class="col-sm" style="max-width: 400px;">
-            <app-phaser-game></app-phaser-game>
+            <app-phaser-game *ngIf="this.roomService.isdone == true"></app-phaser-game>
         </div>
     </div>
 </div>
