@@ -20,7 +20,7 @@ export class LobbyService extends Phaser.Scene{
   lobbyGameService;
 
   constructor(lobbyGameService : LobbyGameService) {
-    super({ key: 'main' });
+    super({ key: 'lobby' });
     this.lobbyGameService = lobbyGameService
 
   }
@@ -115,6 +115,9 @@ export class LobbyService extends Phaser.Scene{
       frameRate: 5,
       repeat: -1
     });
+    this.lobbyGameService.socketioService.socket.on('play', () => {
+      this.scene.start('lpt');
+    })
   }
   
   update() {
@@ -163,3 +166,5 @@ export class LobbyService extends Phaser.Scene{
   }
 
 }
+
+export default LobbyService;

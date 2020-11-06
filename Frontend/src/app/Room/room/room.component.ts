@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/Services/Authentification/auth.service';
 import { RoomService } from 'src/app/Services/Room/room.service';
 import { SocketioService } from 'src/app/Services/Socketio/socketio.service';
 
+
 @Component({
   selector: 'app-room',
   templateUrl: './room.component.html',
@@ -41,6 +42,10 @@ export class RoomComponent implements OnInit {
 
   leaveRoom(){
     this.router.navigate(['home']);
+  }
+
+  play(){
+    this.socketioService.socket.emit('play');
   }
 
   scrollToBottom(){

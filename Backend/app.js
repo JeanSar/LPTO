@@ -101,6 +101,9 @@ io.on('connection', (socket) => {
         io.to(ID.RoomKey).emit('all-player',players[ID.RoomKey])
     })
 
+    socket.on('play' ,() => {
+        io.to(ID.RoomKey).emit('play')
+    })
     /*socket.on('game-1'),(socket) => {
         socket.on('test',() => {
             console.log("oouh ma gaté GATO")
