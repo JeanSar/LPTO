@@ -24,7 +24,7 @@ export class PhaserGameComponent implements OnInit {
     this.lobbyGameService = new LobbyGameService(this.roomService,this.socketioService);
     this.lobby = new LobbyService(this.lobbyGameService);
     this.lptGameService = new LptGameService(this.roomService,this.socketioService);
-    this.lptGame = new LptService(this.lptGameService);
+    this.lptGame = new LptService(this.lptGameService,this.roomService);
     this.config = {
       type: Phaser.AUTO,
       height: 600,

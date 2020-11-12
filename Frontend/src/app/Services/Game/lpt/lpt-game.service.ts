@@ -11,11 +11,24 @@ export class LptGameService {
   me = {};
   socketioService;
   roomService;
+  scores;
 
   constructor(roomService : RoomService,socketioService : SocketioService) {
     this.roomService = roomService;
     this.socketioService = socketioService;
   }
 
-  
+  endGame(score,nbUsers,owner) {
+    this.socketioService.socket.emit('end',score,nbUsers,owner);
+    console.log("jenvoi la fin")
+  }
+
+  getScores() {
+    return new Promise((resolve,reject) => {
+      this.socketioService.socket.on('scores',(tabScores) => {
+        console.log("c la fin les amis");
+        resolve(tabScores);
+      });
+    })
+  }
 }
