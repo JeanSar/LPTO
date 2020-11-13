@@ -234,8 +234,8 @@ export class LptService extends Phaser.Scene{
           this.text2.setText(result[1].name);
           this.text22.setText(result[1].score);
           this.vachette1.visible = true;
-          this.text2.setText(result[2].name);
-          this.text22.setText(result[2].score);
+          this.text3.setText(result[2].name);
+          this.text32.setText(result[2].score);
           break;
       }
     });
