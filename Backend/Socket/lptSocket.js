@@ -1,7 +1,10 @@
-module.exports = function(socket,io,ID,players) {
+const server = require("../server");
+
+module.exports = function(socket,io,ID,players,serverTools) {
     scores = [];
     socket.on('play' ,() => {
         io.to(ID.RoomKey).emit('play')
+        serverTools.DBTools.closeRoom(serverTools.Room,ID.RoomKey);
     })
     socket.on('end',(score,nbUsers,owner) => {
         console.log("test2");
@@ -11,6 +14,9 @@ module.exports = function(socket,io,ID,players) {
             if (scores.length == nbUsers + 1) {
                 io.to(ID.RoomKey).emit('scores',scores);
                 console.log("oué oué oué");
+                serverTools.DBTools.openRoom(serverTools.Room,ID.RoomKey);
+                serverTools.DBTools.saveIfBestScoreForAll(serverTools.ScoreBinding,'LPT',scores);
+
             }
         }
         else {
@@ -18,6 +24,8 @@ module.exports = function(socket,io,ID,players) {
             if (scores.length == nbUsers + 2) {
                 io.to(ID.RoomKey).emit('scores',scores);
                 console.log("oué oué oué");
+                serverTools.DBTools.openRoom(serverTools.Room,ID.RoomKey);
+                serverTools.DBTools.saveIfBestScoreForAll(serverTools.ScoreBinding,'LPT',scores);
             }
         }
     })

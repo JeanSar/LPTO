@@ -18,7 +18,7 @@ module.exports = function(socket,io,ID,name,players) {
                 }}
             },serverTools.Room,serverTools.User,serverTools.mongoose);
             const commonGame = require('./commonGameSocket')(socket,io,ID,players);
-            const lptSocket = require('./lptSocket')(socket,io,ID,players);
+            const lptSocket = require('./lptSocket')(socket,io,ID,players,serverTools);
         });
 
         socket.on('disconnect', ()=> {
