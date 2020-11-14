@@ -82,6 +82,48 @@ class DbFonctions {
                 });
             }).catch((error) => {console.log(error)});;
         }
+
+        closeRoom(Room,RoomKey) {
+            Room.findOne({ key: RoomKey}, (err,room) => {
+                if(room === null){
+                    console.log("Room not found")
+                }else{
+                    room.full = true;
+                    room.save();
+                }
+            })
+        }
+
+        openRoom(Room,RoomKey) {
+            Room.findOne({ key: RoomKey}, (err,room) => {
+                if(room === null){
+                    console.log("Room not found");
+                }else{
+                    room.full = false;
+                    room.save();
+                }
+            })
+        }
+
+        saveIfBestScore(ScoreBinding,gamename,username,score){
+            ScoreBinding.findOne( {username : username,game : gamename},(err,scoreBinding) => {
+                if(scoreBinding === null){
+                    const newScoreBinding = new ScoreBinding({ username : username, game : gamename, score : score});
+                    newScoreBinding.save();
+                }else{
+                    if(scoreBinding.score < score){
+                        scoreBinding.score = score;
+                        scoreBinding.save();
+                    }
+                }
+            })
+        }
+
+        saveIfBestScoreForAll(ScoreBinding,gamename, scoresANDusernames){
+            for(let i=0; i< scoresANDusernames.length;i++){
+                this.saveIfBestScore(ScoreBinding,gamename,scoresANDusernames[i].name,scoresANDusernames[i].score);
+            }
+        }
 }
 
 module.exports = DbFonctions

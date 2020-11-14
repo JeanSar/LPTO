@@ -1,9 +1,10 @@
 const User = require('./database/models/User');
 const Room = require('./database/models/Room');
+const ScoreBinding = require('./database/models/ScoreBinding');
 const DBfonctions = require("./database/DBfonctions");
 const mongoose = require("./database/mongoose");
 const DBTools = new DBfonctions();
-module.exports =  { User, Room, mongoose, DBTools };
+module.exports =  { User, Room, ScoreBinding, mongoose, DBTools };
 const app = require("./app");
 const http = require('http').createServer(app);
 const socket = require("./Socket/mainSocket")(http);

@@ -201,5 +201,31 @@ app.delete('/leave_room', (req,res,next) => {
             })
         }
     })
+
 })
+
+/* get user Best scores by Name */
+app.post('/myBestScore', (req,res,next) =>{
+    serverTools.ScoreBinding.find({ "username" : req.body.username},(err,bestScores) => {
+        if(bestScores === null){
+            res.status(406).json({ status : 'there is no associated score for this player'});
+        }else{
+            res.status(201).send(bestScores);
+        }
+    })
+});
+
+/* get all Best scores for every games */
+app.get('/allStars', (req,res,next) =>{
+    serverTools.ScoreBinding.find({},(err,allScores) => {
+        if(allScores === null){
+            res.status(406).json({ status : 'there is no scores to send'});
+        }else{
+            res.status(201).send(allScores);
+        }
+    })
+})
+
+
+
 module.exports = app;
