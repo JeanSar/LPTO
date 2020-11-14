@@ -14,6 +14,7 @@ export class PublicRoomComponent implements OnInit {
   public_Room : Object;
   public_Rooms : Array<Object> = [];
   error : string;
+  refresh;
   constructor(private homeService : HomeService,public router: Router,private roomService : RoomService,private authService : AuthService) { 
   }
 
@@ -43,7 +44,10 @@ export class PublicRoomComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.setRooms();
+    this.refresh = setInterval(() => {this.setRooms()},2000);
+  }
+  ngOnDestroy(): void {
+    clearInterval(this.refresh);
   }
 
   joinRoom(id : string,key : string){

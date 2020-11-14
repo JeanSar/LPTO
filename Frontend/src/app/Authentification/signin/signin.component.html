@@ -1,22 +1,22 @@
 <form>
+  <div class="form-group">
+      <input type="text" class="form-control font-weight-bold" id="username" placeholder="Username" [(ngModel)]="username" name="username">
+      <div class="invalid-feedback">
+        {{ error }}
+      </div>
+    </div>
     <div class="form-group">
-        <input type="text" class="form-control font-weight-bold" id="username" placeholder="Username" [(ngModel)]="username" name="username">
-        <div class="invalid-feedback">
-          {{ error }}
-        </div>
+      <input type="password" class="form-control font-weight-bold" id="password" placeholder="Password" [(ngModel)]="password" name="password">
+      <div class="invalid-feedback">
+        {{ error }}
       </div>
-      <div class="form-group">
-        <input type="password" class="form-control font-weight-bold" id="password" placeholder="Password" [(ngModel)]="password" name="password">
-        <div class="invalid-feedback">
-          {{ error }}
-        </div>
+    </div>
+    <div class="form-group">
+      <input type="password" class="form-control font-weight-bold" id="confirm_password" aria-describedby="passwordHelper" placeholder="Confirm Password" [(ngModel)]="confirm_password" name="confirm_password">
+      <div class="invalid-feedback">
+        {{ error }}
       </div>
-      <div class="form-group">
-        <input type="password" class="form-control font-weight-bold" id="confirm_password" aria-describedby="passwordHelper" placeholder="Confirm Password" [(ngModel)]="confirm_password" name="confirm_password">
-        <div class="invalid-feedback">
-          {{ error }}
-        </div>
-      </div>
-    <button type="submit" class="btn btn-primary font-weight-bold" (click)="signIn()" *ngIf="notLoading == true">Sign in</button>
-    <div class="spinner-border text-primary" role="status" *ngIf="notLoading == false"><span class="sr-only">Loading...</span></div>
+    </div>
+  <button type="submit" class="btn btn-primary font-weight-bold" (click)="signIn()" *ngIf="notLoading == true">Sign in</button>
+  <div class="spinner-border text-primary" role="status" *ngIf="notLoading == false"><span class="sr-only">Loading...</span></div>
 </form>

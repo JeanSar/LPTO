@@ -1,0 +1,8 @@
+<div id="pbr" class="card text-center" style="border-width:10px;border-style: dashed;border-color: unset;">
+    <div class="card-body">
+        <h5 class="card-title text-primary font-weight-bold">All Best Scores </h5>
+        <ul class="list-group">
+            <li class="list-group-item text-primary font-weight-bold" *ngFor="let score of allBestScores">{{ score.game }}'s Score : {{ score.score }} by {{ score.username }}</li>
+        </ul>
+    </div>
+</div>

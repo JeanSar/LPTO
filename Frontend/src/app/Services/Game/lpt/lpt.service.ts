@@ -240,9 +240,9 @@ export class LptService extends Phaser.Scene{
       }
     });
 
-    /*setTimeout(() => {
+    setTimeout(() => {
       this.scene.start('lobby');
-    }, 5000);*/
+    }, 10000);
 
   }
 

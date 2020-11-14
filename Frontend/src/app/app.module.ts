@@ -14,6 +14,9 @@ import { PrivateRoomComponent } from './Home/private-room/private-room.component
 import { PublicRoomComponent } from './Home/public-room/public-room.component';
 import { RoomComponent } from './Room/room/room.component';
 import { PhaserGameComponent } from './Game/phaser-game/phaser-game.component';
+import { MyBestScoresComponent } from './HallOfFame/my-best-scores/my-best-scores.component';
+import { AllStarsComponent } from './HallOfFame/all-stars/all-stars.component';
+import { HallOfFameComponent } from './HallOfFame/hall-of-fame/hall-of-fame.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { PhaserGameComponent } from './Game/phaser-game/phaser-game.component';
     PrivateRoomComponent,
     PublicRoomComponent,
     RoomComponent,
-    PhaserGameComponent
+    PhaserGameComponent,
+    MyBestScoresComponent,
+    AllStarsComponent,
+    HallOfFameComponent
   ],
   imports: [
     BrowserModule,
