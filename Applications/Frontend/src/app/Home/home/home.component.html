@@ -1,0 +1,26 @@
+<div class="container" id="home">
+    <div class="media">
+                
+        <div class="card text-center" style="width: auto;border-width:10px;border-style: dashed;border-color: unset;">
+            <div class="card-body">
+                <div class="media-body">
+                    <img src="../../assets/profile.png" class="mr-3" alt="user profile" width="50" height="35">
+                    <h5 class="mt-0 font-weight-bold">{{ user.username }}</h5>
+                    <button type="button" class="btn btn-danger btn-sm font-weight-bold" id="bt" (click)="disconnect()" style="margin-right:10px">disconnect</button>
+                    <button type="button" class="btn btn-success btn-sm font-weight-bold" id="bt" (click)="hallOfFame()">Hall of Fame</button>
+                </div>
+            </div>
+        </div>
+      </div>
+    <div class="row justify-content-start">
+        <div class="col-8">
+            <app-public-room></app-public-room>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <app-private-room></app-private-room>
+                <app-create-room></app-create-room>
+            </div>
+        </div>
+    </div>
+</div>

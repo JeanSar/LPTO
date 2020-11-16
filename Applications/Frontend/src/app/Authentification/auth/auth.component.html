@@ -1,0 +1,12 @@
+<div class="authPanel">
+    <div class="card text-center" style="width: 23rem;border-width:10px;border-style: dashed;border-color: unset;">
+        <div class="card-body">
+            <h5 class="card-title text-primary font-weight-bold">Authentication</h5>
+            <app-login *ngIf="!registerMode"></app-login>
+            <app-signin *ngIf="registerMode"></app-signin>
+        </div>
+        <div class="card-footer text-muted text-primary font-weight-bold">
+            <a id="kinda-link" (click)="onSwitchMode()">{{ whichMode() }}</a>
+          </div>
+    </div>
+</div>

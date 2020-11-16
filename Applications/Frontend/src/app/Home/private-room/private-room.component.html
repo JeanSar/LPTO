@@ -1,0 +1,13 @@
+<div id="pvr" class="card text-center" style="width: 18rem;border-width:10px;border-style: dashed;border-color: unset;">
+    <div class="card-body">
+        <h5 class="card-title text-primary font-weight-bold">Join private Room</h5>
+        <div class="form-group">
+            <label class="text-primary font-weight-bold" for="roomKey">Key</label>
+            <input type="text" class="form-control font-weight-bold" id="roomKey" placeholder="Enter roomKey" [(ngModel)]="key">
+            <div class="invalid-feedback">
+                {{ error }}
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary font-weight-bold" (click)="join()">Join</button>
+    </div>
+</div>
