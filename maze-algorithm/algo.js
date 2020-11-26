@@ -177,11 +177,23 @@ function mazeGeneration(map) {
 	
 	let sx = 1;
 	let sy = 1;
-	while(map[sx][sy] === 0){
-		sx++;
+	let retrait = 1;
+	
+	while(map[sx][sy] === 0) {
+		if(sx < size - 1) {
+			sx++;
+		} 
+		else {
+			sy++;
+			sx = 1;
+			retrait++;
+		}
 	}
 	
-	map[sx][sy -1] = 1;
+	for(let i = 0; i < retrait; i++){
+		map[sx][sy - (i + 1)] = 1;
+	}
+	
   return map;
 }
 
