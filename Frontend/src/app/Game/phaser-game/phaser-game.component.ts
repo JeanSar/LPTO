@@ -36,7 +36,7 @@ export class PhaserGameComponent implements OnInit {
       height: 600,
       width: 800,
       parent : 'gameBox',
-      scene : [this.lobby, this.lptGame],
+      scene : [this.lobby, this.lptGame, this.labiryntheGame],
       physics: {
         default: 'arcade',
         arcade: {
@@ -49,8 +49,7 @@ export class PhaserGameComponent implements OnInit {
 
   ngOnInit(): void {
     this.phaserGame = new Phaser.Game(this.config);
-    //this.phaserGame.scene.start('lobby');
-    this.phaserGame.scene.start('labiryntheGame');
+    this.phaserGame.scene.start('lobby');
 
   }
 

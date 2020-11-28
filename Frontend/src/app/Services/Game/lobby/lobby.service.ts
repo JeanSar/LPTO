@@ -25,7 +25,7 @@ export class LobbyService extends Phaser.Scene{
 
   }
   setPlayers() {
-    
+
     for(var sprite of this.otherPlayers){
       //console.log(sprite);
       if(sprite != undefined){
@@ -48,7 +48,7 @@ export class LobbyService extends Phaser.Scene{
       }else{
         if(this.player != undefined){
           this.player.destroy();
-        }      
+        }
         this.player = this.physics.add.sprite(player.posX,player.posY,'vachette');
         this.player.setBounce(0.2);
         this.player.setCollideWorldBounds(true);
@@ -115,11 +115,19 @@ export class LobbyService extends Phaser.Scene{
       frameRate: 5,
       repeat: -1
     });
-    this.lobbyGameService.socketioService.socket.on('play', () => {
-      this.scene.start('lpt');
-    })
+    if(true){
+      this.lobbyGameService.socketioService.socket.on('play', () => {
+        this.scene.start('labirynthe');
+      });
+    }
+    else {
+      this.lobbyGameService.socketioService.socket.on('play', () => {
+        this.scene.start('lpt');
+      });
+    };
+
   }
-  
+
   update() {
 
     if(this.lobbyGameService.reset){
@@ -130,7 +138,7 @@ export class LobbyService extends Phaser.Scene{
       this.setPositions();
       this.lobbyGameService.resetPos = false;
     }
-    
+
     //this.myName.x = this.player.x;
     if (this.cursors.left.isDown)
     {
