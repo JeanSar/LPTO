@@ -8,7 +8,7 @@ export class RoomService {
   data;
   user;
   key;
-
+  laby;
   ownerName;
   users = [];
   me;
@@ -19,7 +19,7 @@ export class RoomService {
 
   isdone = false;
 
-  constructor(private webService : WebService) { 
+  constructor(private webService : WebService) {
   }
   getOwner(data) {
     return this.webService.post('username',data);
@@ -61,7 +61,7 @@ export class RoomService {
       data => {this.ownerName = data;this.ownerName = this.ownerName.username;
         task3 = true;if(task1&&task2&&task3){this.isdone=true;}},
       error => {console.log(error.error.status)}
-    ) 
+    )
   }
 
 }

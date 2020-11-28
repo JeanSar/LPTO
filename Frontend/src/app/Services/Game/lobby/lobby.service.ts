@@ -116,15 +116,21 @@ export class LobbyService extends Phaser.Scene{
       repeat: -1
     });
     if(true){
-      this.lobbyGameService.socketioService.socket.on('play', () => {
-        this.scene.start('labirynthe');
-      });
-    }
-    else {
-      this.lobbyGameService.socketioService.socket.on('play', () => {
-        this.scene.start('lpt');
-      });
-    };
+         this.lobbyGameService.socketioService.socket.on('play', () => {
+           if(true){
+               this.lobbyGameService.socketioService.socket.emit('playLab');
+               this.lobbyGameService.socketioService.socket.on('startLab', (lab) => {
+                 this.lobbyGameService.roomService.laby = lab;
+                 this.scene.start('labirynthe');
+
+               })
+           }else{
+             this.scene.start('lpt');
+           }
+
+         });
+    } 
+
 
   }
 
