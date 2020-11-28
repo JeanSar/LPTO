@@ -10,12 +10,12 @@ import { LabiryntheGameService } from './labirynthe-game.service';
 })
 
 /*algo du labirynthe à implementer, à la place de tout ça*/
-export class LabyrintheService extends Phaser.Scene{
+export class LabiryntheService extends Phaser.Scene{
   socketioService
   roomService;
   player;
   otherPlayers = [];
-  cursors; 
+  cursors;
   socket;
   myName;
   labiryntheService;
@@ -26,7 +26,7 @@ export class LabyrintheService extends Phaser.Scene{
 
   }
   setPlayers() {
-    
+
     for(var sprite of this.otherPlayers){
       //console.log(sprite);
       if(sprite != undefined){
@@ -49,7 +49,7 @@ export class LabyrintheService extends Phaser.Scene{
       }else{
         if(this.player != undefined){
           this.player.destroy();
-        }      
+        }
         this.player = this.physics.add.sprite(player.posX,player.posY,'vachette');
         this.player.setBounce(0.2);
         this.player.setCollideWorldBounds(true);
@@ -120,7 +120,7 @@ export class LabyrintheService extends Phaser.Scene{
       this.scene.start('lpt');
     })
   }
-  
+
   update() {
 
     if(this.labiryntheService.reset){
@@ -131,7 +131,7 @@ export class LabyrintheService extends Phaser.Scene{
       this.setPositions();
       this.labiryntheService.resetPos = false;
     }
-    
+
     //this.myName.x = this.player.x;
     if (this.cursors.left.isDown)
     {
