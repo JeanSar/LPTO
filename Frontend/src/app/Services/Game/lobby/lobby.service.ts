@@ -117,7 +117,7 @@ export class LobbyService extends Phaser.Scene{
     });
     if(true){
          this.lobbyGameService.socketioService.socket.on('play', () => {
-           if(true){
+           if(false){
                this.lobbyGameService.socketioService.socket.emit('playLab');
                this.lobbyGameService.socketioService.socket.on('startLab', (lab) => {
                  this.lobbyGameService.roomService.laby = lab;
