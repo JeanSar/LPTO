@@ -221,7 +221,14 @@ app.get('/allStars', (req,res,next) =>{
         if(allScores === null){
             res.status(406).json({ status : 'there is no scores to send'});
         }else{
-            res.status(201).send(allScores);
+            function compare(a,b){
+                if(a.score > b.score)
+                    return -1;
+                if(b.score > a.score)
+                    return 1;
+                return 0;
+            }
+            res.status(201).send(allScores.sort(compare));
         }
     })
 })
