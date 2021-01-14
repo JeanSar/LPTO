@@ -23,8 +23,8 @@ Rendez vous sur le repertoire Backend et lancer seulement
 
 Ouvrez un nouveau terminal, puis rendez vous sur le repertoire Frontend
 entrez la commande **npm install**
-suivit de **ng serve --open**
-une page s'ouvrira automatiquement avec notre navigateur par défaut
+suivit de **ng serve --open** cela lancera le serveur de developpement du client et
+une page vers le site s'ouvrira automatiquement avec votre navigateur par défaut
 Vous disposerez des mêmes fonctionnalités qu'en ligne.
 
 Il y'a aussi un repertoire Application, rendez vous y
